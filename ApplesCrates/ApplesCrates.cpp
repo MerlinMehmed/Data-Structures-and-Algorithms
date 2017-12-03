@@ -70,6 +70,9 @@ int rotApples(int crate[R][C])
 			q.enqueue(pos(cur.x, cur.y - 1));
 		}
 
+		if (areRotten(crate) || q.isEmpty())
+			break;
+		
 		if (cur.x == -1)
 		{
 			steps++;
@@ -80,9 +83,6 @@ int rotApples(int crate[R][C])
 			}
 			q.enqueue(pos(-1, -1));
 		}
-
-		if (areRotten(crate) || q.isEmpty())
-			break;
 	}
 	return steps;
 }
